@@ -19,6 +19,7 @@ return array(
 	|
 	*/
 
+	// TODO: Install and use APC
 	'driver' => 'file',
 
 	/*
@@ -33,7 +34,7 @@ return array(
 	|
 	*/
 
-	'key' => 'laravel',
+	'key' => 'idocs',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -66,6 +67,6 @@ return array(
 
 		array('host' => '127.0.0.1', 'port' => 11211, 'weight' => 100),
 
-	),	
+	),
 
 );
