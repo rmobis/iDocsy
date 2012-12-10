@@ -194,5 +194,4 @@ return array(
 		'Validator'  	=> 'Laravel\\Validator',
 		'View'       	=> 'Laravel\\View',
 	),
-
 );
