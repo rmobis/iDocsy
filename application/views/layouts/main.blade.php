@@ -86,6 +86,24 @@
 						@else
 							There is yet no usage example to this item.
 						@endif
+
+						@if (count($item->parameters) > 0)
+							<h3>Parameters</h3>
+							<ul>
+							@foreach ($item->parameters as $param)
+								<li>
+									<span class="code">{{$param->name}} - {{$param->type}} - </span>
+									<span>{{$param->html_description}}</span>
+								</li>
+							@endforeach
+							</ul>
+						@endif
+
+						@if ($item->return_value)
+							<h3>Returns</h3>
+							<span class="code">{{$item->return_value->type}} - </span>
+							<span>{{$item->return_value->html_description}}</span>
+						@endif
 					</div>
 				</div>
 			</div>
