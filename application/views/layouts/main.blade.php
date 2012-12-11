@@ -73,11 +73,9 @@
 							{{ $item->name }}
 						</h1>
 						<h2>Description</h2>
-						<p>Your current capacity left.</p>
+						{{ $item->html_description }}
 						<h2>Usage</h2>
-						<pre class="prettyprint linenums lang-lua">if cap < 10 then
-	-- Less than 10 capacity left
-end</pre>
+						{{ $item->html_usage }}
 					</div>
 				</div>
 			</div>
