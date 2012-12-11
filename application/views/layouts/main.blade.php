@@ -62,20 +62,30 @@
 							<span class="divider">/</span>
 						</li>
 						@foreach (array($item->section->module, $item->section, $item) as $crumb)
-						<li>
-							<span>{{ $crumb->name }}</span>
-							<span class="divider">/</span>
-						</li>
+							<li>
+								<span>{{ $crumb->name }}</span>
+								<span class="divider">/</span>
+							</li>
 						@endforeach
 					</ul>
 					<div class="content">
 						<h1 class="code">
 							{{ $item->name }}
 						</h1>
+
 						<h2>Description</h2>
-						{{ $item->html_description }}
+						@if ($item->html_description !== '')
+							{{ $item->html_description }}
+						@else
+							There is yet no description to this item.
+						@endif
+
 						<h2>Usage</h2>
-						{{ $item->html_usage }}
+						@if ($item->html_usage !== '')
+							{{ $item->html_usage }}
+						@else
+							There is yet no usage example to this item.
+						@endif
 					</div>
 				</div>
 			</div>
