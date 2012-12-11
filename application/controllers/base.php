@@ -3,6 +3,7 @@
 class Base_Controller extends Controller {
 	public $layout = 'layouts.main';
 
+
 	/**
 	 * Catch-all method for requests that can't be matched.
 	 *
