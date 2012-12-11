@@ -7,6 +7,10 @@ class DocItem extends Eloquent {
 		return $this->belongs_to('DocSection');
 	}
 
+	public function data() {
+		return $this->has_one('DocItemData', 'item_id');
+	}
+
 	public function return_value() {
 		return $this->has_one('ReturnValue', 'item_id');
 	}

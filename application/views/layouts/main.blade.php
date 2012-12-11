@@ -74,15 +74,15 @@
 						</h1>
 
 						<h2>Description</h2>
-						@if ($item->html_description !== '')
-							{{ $item->html_description }}
+						@if ($item->data->html_desc !== '')
+							{{ $item->data->html_desc }}
 						@else
 							There is yet no description to this item.
 						@endif
 
 						<h2>Usage</h2>
-						@if ($item->html_usage !== '')
-							{{ $item->html_usage }}
+						@if ($item->data->html_usage !== '')
+							{{ $item->data->html_usage }}
 						@else
 							There is yet no usage example to this item.
 						@endif
@@ -93,7 +93,7 @@
 							@foreach ($item->parameters as $param)
 								<li>
 									<span class="code">{{$param->name}} - {{$param->type}} - </span>
-									<span>{{$param->html_description}}</span>
+									<span>{{$param->html_desc}}</span>
 								</li>
 							@endforeach
 							</ul>
@@ -102,7 +102,7 @@
 						@if ($item->return_value)
 							<h3>Returns</h3>
 							<span class="code">{{$item->return_value->type}} - </span>
-							<span>{{$item->return_value->html_description}}</span>
+							<span>{{$item->return_value->html_desc}}</span>
 						@endif
 					</div>
 				</div>
