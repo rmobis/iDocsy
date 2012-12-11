@@ -1,7 +1,6 @@
 <?php
 
 class Base_Controller extends Controller {
-
 	/**
 	 * Catch-all method for requests that can't be matched.
 	 *
@@ -9,9 +8,19 @@ class Base_Controller extends Controller {
 	 * @param  array     $parameters
 	 * @return Response
 	 */
-	public function __call($method, $parameters)
-	{
+	public function __call($method, $parameters) {
 		return Response::error('404');
 	}
 
+	public function __construct() {
+		Asset::add('jQuery', 'js/jquery.js')
+			 ->add('Bootstrap', 'js/bootstrap.js', 'jQuery')
+			 ->add('Prettify', 'js/prettify.js')
+			 ->add('Prettify Lua', 'js/prettify.lua.js');
+
+		Asset::add('Bootstrap', 'css/bootstrap.css')
+			 ->add('Main Styles', 'css/styles.css', 'Bootstrap')
+			 ->add('Bootstrap Resp', 'css/bootstrap.resp.css', 'Main Styles')
+			 ->add('Prettify', 'css/prettify.css');
+	}
 }
