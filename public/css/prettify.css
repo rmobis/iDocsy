@@ -1,0 +1,53 @@
+/* Comments */
+.com {
+	color: #1a1;
+}
+
+/* Literal Values */
+.lit {
+	color: #099;
+}
+
+/* Punctuation */
+.pun {
+	color: #aaa;
+}
+
+/* String Literal */
+.str {
+	color: #D14;
+}
+
+/* Keywords */
+.kwd {
+	color: #1e34cb;
+	font-weight: bold;
+}
+
+/* Plain Text */
+.pln {
+	color: #222;
+}
+
+.prettyprint {
+	padding: 8px;
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+}
+
+.prettyprint.linenums {
+	-webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+	   -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+			box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+	margin: 0 0 0 33px; /* IE indents via margin-left */
+}
+ol.linenums li {
+	padding-left: 12px;
+	color: #bebec5;
+	line-height: 20px;
+	text-shadow: 0 1px 0 #fff;
+}

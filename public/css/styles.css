@@ -1,0 +1,62 @@
+body {
+	padding-top: 60px;
+}
+
+.breadcrumb li:last-child {
+	color: #333333;
+}
+
+.breadcrumb li:last-child .divider {
+	display: none;
+}
+
+.spacer {
+	height: 1em;
+}
+
+.docs {
+	border-color: #D3D3D3;
+	padding: 0 15px;
+	margin-bottom: 15px;
+}
+
+.docs:last-child {
+	margin-bottom: 0;
+}
+
+.docs li,
+.docs li span {
+	line-height: 14px;
+}
+
+.docs li.nav-header {
+	margin: 0 -15px 0 -15px;
+}
+
+.docs li.module {
+	background-color: #D3D3D3;
+}
+
+.docs li.section {
+	background-color: #EBEBEB;
+	padding: 0 15px;
+}
+
+.docs li.nav-header span {
+	color: black;
+	text-transform: none;
+}
+
+.docs li.module span {
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.code {
+	font-family: monospace;
+}
+
+.content h2 {
+	margin-top: 1em;
+}
