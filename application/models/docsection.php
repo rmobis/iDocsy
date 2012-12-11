@@ -7,7 +7,7 @@ class DocSection extends Eloquent {
 		return $this->belongs_to('DocModule');
 	}
 
-	public function items($full = false) {
+	public function items() {
 		return $this->has_many('DocItem', 'section_id')
 					->order_by('name');
 	}
