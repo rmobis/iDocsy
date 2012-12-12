@@ -1,3 +1,3 @@
 <li>
-	<a href="docs/{{ $item->link }}">{{ $item->name }}</a>
+	<a href="/docs/{{ $item->link }}">{{ $item->name }}</a>
 </li>
