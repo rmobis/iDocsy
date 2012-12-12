@@ -74,14 +74,14 @@
 						</h1>
 
 						<h2>Description</h2>
-						@if ($item->data->html_desc !== '')
+						@if ($item->data && $item->data->html_desc !== '')
 							{{ $item->data->html_desc }}
 						@else
 							There is yet no description to this item.
 						@endif
 
 						<h2>Usage</h2>
-						@if ($item->data->html_usage !== '')
+						@if ($item->data && $item->data->html_usage !== '')
 							{{ $item->data->html_usage }}
 						@else
 							There is yet no usage example to this item.
