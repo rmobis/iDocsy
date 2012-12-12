@@ -8,4 +8,13 @@ class Docs_Controller extends Base_Controller {
 		return View::make('layouts.main')
 				   ->with('item', $first_item);
 	}
+
+	public function action_api($key) {
+		$first_item = DocItem::with(array('section', 'section.module', 'data', 'parameters', 'return_value'))
+							 ->where('link', '=', $key)
+							 ->first();
+
+		return View::make('layouts.main')
+				   ->with('item', $first_item);
+	}
 }

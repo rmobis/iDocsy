@@ -33,6 +33,8 @@
 */
 
 Route::any('/', 'docs@index');
+Route::any('/docs', 'docs@index');
+Route::any('/docs/(:any)', 'docs@api');
 
 
 /*
