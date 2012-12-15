@@ -25,12 +25,12 @@ CREATE TABLE `items` (
 );
 
 CREATE TABLE `headings` (
-	`id`		INT(10)			UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	`item_id`	INT(10)			UNSIGNED NOT NULL,
-	`order`		TINYINT(2)		UNSIGNED NOT NULL,
-	`name`		VARCHAR(128)	NOT NULL,
-	`html_desc`	VARCHAR(1024)	NOT NULL,
-	`bbcd_desc`	VARCHAR(1024),
+	`id`			INT(10)			UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	`item_id`		INT(10)			UNSIGNED NOT NULL,
+	`order`			TINYINT(2)		UNSIGNED NOT NULL,
+	`name`			VARCHAR(128)	NOT NULL,
+	`html_content`	VARCHAR(1024)	NOT NULL,
+	`bbcd_content`	VARCHAR(1024),
 
 	UNIQUE (`item_id`, `order`),
 	FOREIGN KEY (`item_id`) REFERENCES `items` (`id`)
@@ -41,8 +41,8 @@ CREATE TABLE `sub_headings` (
 	`heading_id`	INT(10)			UNSIGNED NOT NULL,
 	`order`			TINYINT(2)		UNSIGNED NOT NULL,
 	`name`			VARCHAR(128)	NOT NULL,
-	`html_desc`		VARCHAR(512)	NOT NULL,
-	`bbcd_desc`		VARCHAR(512),
+	`html_content`	VARCHAR(512)	NOT NULL,
+	`bbcd_content`	VARCHAR(512),
 
 	UNIQUE (`heading_id`, `order`),
 	FOREIGN KEY (`heading_id`) REFERENCES `headings` (`id`)
