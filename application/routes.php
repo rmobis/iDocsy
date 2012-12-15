@@ -32,9 +32,20 @@
 |
 */
 
-Route::any('/', 'docs@index');
-Route::any('/docs', 'docs@index');
-Route::any('/docs/(:any)', 'docs@api');
+Route::any(array('/', 'docs'), array(
+	'as'	=> 'home',
+	'uses'	=> 'docs@index'
+));
+
+Route::any('(:any)/(:any)', array(
+	'as'	=> 'item',
+	'uses'	=> 'docs@item'
+));
+
+Route::any('(:any)', array(
+	'as'	=> 'module',
+	'uses'	=> 'docs@module'
+));
 
 
 /*
