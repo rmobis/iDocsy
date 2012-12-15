@@ -51,60 +51,20 @@
 						<div class="spacer"></div>
 
 						<?php
-							echo(render_each('partials.docmodule', DocModule::with(array('sections', 'sections.items'))->get(), 'module'));
+							echo(render_each('partials.module', Module::with('items')->get(), 'module'));
 						?>
 					</div>
 				</div>
 				<div class="span9">
 					<ul class="breadcrumb">
-						<li>
-							<span>Documentation</span>
-							<span class="divider">/</span>
-						</li>
-						@foreach (array($item->section->module, $item->section, $item) as $crumb)
-							<li>
-								<span>{{ $crumb->name }}</span>
-								<span class="divider">/</span>
-							</li>
-						@endforeach
+						<?php
+							echo(render_each('partials.crumb', array(
+								array('Documentation', '/'),
+								array($item->module->name, $item->module->full_link()),
+								array($item->name, '')
+							), 'crumb'));
+						?>
 					</ul>
-					<div class="content">
-						<h1 class="code">
-							{{ $item->name }}
-						</h1>
-
-						<h2>Description</h2>
-						@if ($item->data && $item->data->html_desc !== '')
-							{{ $item->data->html_desc }}
-						@else
-							There is yet no description to this item.
-						@endif
-
-						<h2>Usage</h2>
-						@if ($item->data && $item->data->html_usage !== '')
-							{{ $item->data->html_usage }}
-						@else
-							There is yet no usage example to this item.
-						@endif
-
-						@if (count($item->parameters) > 0)
-							<h3>Parameters</h3>
-							<ul>
-							@foreach ($item->parameters as $param)
-								<li>
-									<span class="code">{{$param->name}} - {{$param->type}} - </span>
-									<span>{{$param->html_desc}}</span>
-								</li>
-							@endforeach
-							</ul>
-						@endif
-
-						@if ($item->return_value)
-							<h3>Returns</h3>
-							<span class="code">{{$item->return_value->type}} - </span>
-							<span>{{$item->return_value->html_desc}}</span>
-						@endif
-					</div>
 				</div>
 			</div>
 		</div>
