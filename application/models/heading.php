@@ -6,7 +6,7 @@ class Heading extends Eloquent {
 	}
 
 	public function sub_headings() {
-		return $this->has_many('SubHeading', 'heading_id');
+		return $this->has_many('SubHeading', 'heading_id')
 					->order_by('order');
 	}
 }
