@@ -31,26 +31,28 @@ body {
 
 .docs li.nav-header {
 	margin: 0 -15px 0 -15px;
+	text-transform: none;
 }
 
 .docs li.module {
 	background-color: #D3D3D3;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 13px;
 }
 
 .docs li.section {
 	background-color: #EBEBEB;
+}
+
+.docs li.section,
+.docs li.module a {
 	padding: 0 15px;
-}
-
-.docs li.nav-header span {
 	color: black;
-	text-transform: none;
 }
 
-.docs li.module span {
-	font-family: monospace;
-	font-weight: bold;
-	font-size: 13px;
+.docs li.module a:hover {
+	background: none;
 }
 
 .code {
