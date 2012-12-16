@@ -17,7 +17,28 @@
 	</head>
 	<body>
 		<header>
-			<div class="navbar navbar-inverse navbar-fixed-top">
+			<?php
+				/*echo Navbar::create('iDocsy', URL::to_route('home'),
+					array(
+						array(
+							'attributes' => array(),
+							'items' => array(
+								array(
+									'label'		=> 'Home',
+									'url'		=> URL::to_route('home'),
+									'active'	=> Request::route()->is('home')
+								),
+								array(
+									'label'		=> 'Login',
+									'url'		=> URL::to_route('login'),
+									'active'	=> Request::route()->is('login')
+								)
+							)
+						)
+					)
+				);*/
+			?>
+			<!--<div class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -25,21 +46,38 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>
-						<a class="brand" href="/">iDocsy</a>
+						<a class="brand" href="{{ URL::to_route('home') }}">iDocsy</a>
 						<div class="nav-collapse collapse">
 							<ul class="nav">
 								<li class="divider-vertical"></li>
-								<li class="active">
-									<a href="/">
+								<li
+								@if (Request::route()->is('home'))
+								class="active"
+								@endif
+								>
+									<a href="{{ URL::to_route('home') }}">
 										<i class="icon-home icon-white"></i>
 										Home
 									</a>
 								</li>
+								@if (Auth::guest())
+									<li
+										@if (Request::route()->is('login'))
+											class="active"
+										@endif
+									>
+										<a href="{{ URL::to_route('login') }}">
+											Login
+										</a>
+									</li>
+								@else
+									<li></li>
+								@endif
 							</ul>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
 		</header>
 		<div class="container">
 			<div class="row">
@@ -51,20 +89,12 @@
 						<div class="spacer"></div>
 
 						<?php
-							echo(render_each('partials.module', Module::with('items')->get(), 'module'));
+							echo(render_each('partials.module', Module::with(array('items', 'items.module'))->get(), 'module'));
 						?>
 					</div>
 				</div>
 				<div class="span9">
-					<ul class="breadcrumb">
-						<?php
-							echo(render_each('partials.crumb', array(
-								array('Documentation', '/'),
-								array($item->module->name, $item->module->full_link()),
-								array($item->name, '')
-							), 'crumb'));
-						?>
-					</ul>
+					{{ $subpage }}
 				</div>
 			</div>
 		</div>
