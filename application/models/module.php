@@ -6,6 +6,11 @@ class Module extends Eloquent {
 	private $consts;
 	private $typs;
 
+	public function headings() {
+		return $this->has_many('ModuleHeading', 'module_id')
+					->order_by('order');
+	}
+
 	public function items() {
 		return $this->has_many('Item', 'module_id')
 					->order_by('type')

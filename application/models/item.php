@@ -18,6 +18,6 @@ class Item extends Eloquent {
 	}
 
 	public function full_link() {
-		return URL::to_route('item', array($this->link));
+		return URL::to_route('item', array($this->module->link, $this->link));
 	}
 }
