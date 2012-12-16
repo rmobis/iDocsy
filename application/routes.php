@@ -32,17 +32,53 @@
 |
 */
 
-Route::any(array('/', 'docs'), array(
+Route::get(array('/', 'docs'), array(
 	'as'	=> 'home',
 	'uses'	=> 'docs@index'
 ));
 
-Route::any('(:any)/(:any)', array(
+Route::get('login', array(
+	'as'	=> 'login',
+	'uses'	=> 'docs@login'
+));
+
+Route::post('login', function() {
+	$userinfo = array(
+		'username' => Input::get('username'),
+		'password' => Input::get('password')
+	);
+
+	if (Auth::attempt($userinfo)) {
+		if (Input::has('backlink')) {
+			return Redirect::to(Input::get('backlink'));
+		} else {
+			return Redirect::to_route('home');
+		}
+	} else {
+		Session::keep('backlink');
+		return Redirect::to_route('login')
+					   ->with('login_errors', true);
+	}
+});
+
+Route::get('hash/(:any)', function($pw) {
+	exit(Hash::make($pw));
+});
+
+Route::get('logout', array(
+	'as'	=> 'logout',
+	'do'	=> function() {
+		Auth::logout();
+		return Redirect::to_route('home');
+	}
+));
+
+Route::get('(:any)/(:any)', array(
 	'as'	=> 'item',
 	'uses'	=> 'docs@item'
 ));
 
-Route::any('(:any)', array(
+Route::get('(:any)', array(
 	'as'	=> 'module',
 	'uses'	=> 'docs@module'
 ));
@@ -112,5 +148,8 @@ Route::filter('csrf', function() {
 });
 
 Route::filter('auth', function() {
-	if (Auth::guest()) return Redirect::to('login');
+	if (Auth::guest()) {
+		return Redirect::to('login')
+					   ->with('backlink', URL::current());
+	}
 });
