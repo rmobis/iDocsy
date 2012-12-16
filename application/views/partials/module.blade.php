@@ -1,6 +1,6 @@
 <ul class="nav nav-list well docs">
 	<li class="nav-header module">
-		<a href="{{ $module->link }}">{{ $module->name }}</a>
+		<a href="{{ $module->full_link() }}">{{ $module->name }}</a>
 	</li>
 
 	<?php
