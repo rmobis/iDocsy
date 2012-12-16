@@ -16,6 +16,8 @@ class Base_Controller extends Controller {
 	}
 
 	public function __construct() {
+		parent::__construct();
+
 		Asset::add('jQuery', 'js/jquery.js')
 			 ->add('Bootstrap', 'js/bootstrap.js', 'jQuery')
 			 ->add('Prettify', 'js/prettify.js')
