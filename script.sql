@@ -47,3 +47,33 @@ CREATE TABLE `sub_headings` (
 	UNIQUE (`heading_id`, `order`),
 	FOREIGN KEY (`heading_id`) REFERENCES `headings` (`id`)
 );
+
+CREATE TABLE `module_headings` (
+	`id`			INT(10)			UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	`module_id`		INT(10)			UNSIGNED NOT NULL,
+	`order`			TINYINT(2)		UNSIGNED NOT NULL,
+	`name`			VARCHAR(128)	NOT NULL,
+	`html_content`	VARCHAR(1024)	NOT NULL,
+	`bbcd_content`	VARCHAR(1024),
+
+	UNIQUE (`module_id`, `order`),
+	FOREIGN KEY (`module_id`) REFERENCES `modules` (`id`)
+);
+
+CREATE TABLE `module_sub_headings` (
+	`id`			INT(10)			UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	`heading_id`	INT(10)			UNSIGNED NOT NULL,
+	`order`			TINYINT(2)		UNSIGNED NOT NULL,
+	`name`			VARCHAR(128)	NOT NULL,
+	`html_content`	VARCHAR(512)	NOT NULL,
+	`bbcd_content`	VARCHAR(512),
+
+	UNIQUE (`heading_id`, `order`),
+	FOREIGN KEY (`heading_id`) REFERENCES `module_headings` (`id`)
+);
+
+CREATE TABLE `users` (
+	`id`			INT(10)			UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	`email`			VARCHAR(128)	NOT NULL,
+	`password`		VARCHAR(60)		NOT NULL
+);

@@ -58,3 +58,14 @@ INSERT INTO `sub_headings`
 (10,			1,			'Parameters',	'<ul><li><span class="code">creature - {Creature} - <a href="/docs/type/creature">Creature</a> to be attacked.</span></li></ul>'),
 (12,			1,			'Parameters',	'<ul><li><span class="code">channel - {string} - Channel to be checked.</span></li></ul>'),
 (12,			2,			'Returns',		'<span class="code">{boolean} - Wheter the checked channel is open.</span>');
+
+INSERT INTO `module_headings`
+(`module_id`,	`order`,	`name`,			`html_content`) VALUES
+
+(1,				1, 			'Description',	'This module holds all content that comes packed with iBot, without any additional library.<br /><br /><strong>Note:</strong> It does not contain any information about standard LUA functions/variables.');
+
+INSERT INTO `users`
+(`email`,						`password`) VALUES
+
+('r.mobis@gmail.com',			'$2a$08$yJdnyLYKwFxtuU2KdTbKluKrVFfJuSJq/MyyyN1r6LL3C94FDf/CW'),
+('leonardo.falk@hotmail.com',	'$2a$08$z5mr7C9M3NkNRIGo6k.ErOHSiggaucCAJeCo5PSh9NXxHap0euK2a');
