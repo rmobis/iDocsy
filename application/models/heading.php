@@ -9,4 +9,8 @@ class Heading extends Eloquent {
 		return $this->has_many('SubHeading', 'heading_id')
 					->order_by('order');
 	}
+
+	public function html_id() {
+		return Str::slug($this->name);
+	}
 }

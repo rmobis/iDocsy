@@ -6,4 +6,8 @@ class SubHeading extends Eloquent {
 	public function heading() {
 		return $this->belongs_to('Heading');
 	}
+
+	public function html_id() {
+		return Str::slug($this->name);
+	}
 }
