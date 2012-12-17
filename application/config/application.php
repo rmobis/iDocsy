@@ -161,7 +161,7 @@ return array(
 		'Blade'      			=> 'Laravel\\Blade',
 		'Breadcrumb'   			=> 'Bootstrapper\\Breadcrumb',
 		'Bundle'     			=> 'Laravel\\Bundle',
-		'Buttons'       		=> 'Bootstrapper\\Buttons',
+		'Button'       			=> 'Bootstrapper\\Button',
 		'ButtonGroup'   		=> 'Bootstrapper\\ButtonGroup',
 		'ButtonToolbar' 		=> 'Bootstrapper\\ButtonToolbar',
 		'Cache'      			=> 'Laravel\\Cache',
