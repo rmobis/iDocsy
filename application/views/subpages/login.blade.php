@@ -1,13 +1,19 @@
 <?php echo(Breadcrumb::create(array(
     'Documentation' => URL::to_route('home'),
-    'Login'
+    'Admin Login'
 ))); ?>
 
+<h1>Admin Login</h1>
+<br />
 <div>
-    {{ Form::open('login') }}
+    {{ Form::open(URL::to_route('login')) }}
         <!-- check for login errors flash var -->
         @if (Session::has('login_errors'))
             {{ Alert::error("Username or password incorrect.") }}
+        @endif
+
+        @if (Session::has('backlink'))
+            {{ Form::hidden('backlink', Session::get('backlink')) }}
         @endif
 
         <!-- username field -->
