@@ -60,6 +60,12 @@ class Navigation
         }
 
         foreach ($list as $item) {
+            $visible = isset($item['visible']) ? $item['visible'] : true;
+
+            if (!$visible) {
+                continue;
+            }
+
             $icon = isset($item['icon']) ? $item['icon'] : null;
 
             // Set vertical dividers
@@ -74,7 +80,7 @@ class Navigation
             } elseif ($item['label'] === Navigation::HEADER) {
                 $iconStr = "";
                 if ($icon !== null) {
-                    $iconStr = '<i class="' .Config::get('icons_prefix').$icon.'"></i> ';
+                    $iconStr = '<i class="' .Config::get('icons_prefix').$icon.' icon-white"></i> ';
                 }
 
                 $html .= '<li class="nav-header">'.$iconStr.HTML::entities($item['url']).'</li>';
@@ -233,7 +239,7 @@ class Navigation
         }
 
         if (isset($icon)) {
-            $title = '<i class="'.Config::get('icons_prefix').$icon.'"></i> '.$title;
+            $title = '<i class="'.Config::get('icons_prefix').$icon.' icon-white"></i> '.$title;
         }
 
         return '<a href="'.$url.'"'.HTML::attributes($attributes).'>'.$title.'</a>';
