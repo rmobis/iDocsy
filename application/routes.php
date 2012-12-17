@@ -33,54 +33,67 @@
 */
 
 Route::get(array('/', 'docs'), array(
-	'as'	=> 'home',
-	'uses'	=> 'docs@index'
+	'as'		=> 'home',
+	'uses'		=> 'docs@index'
 ));
 
 Route::get('login', array(
-	'as'	=> 'login',
-	'uses'	=> 'docs@login'
+	'as'		=> 'login',
+	'uses'		=> 'admin@login'
 ));
 
-Route::post('login', function() {
-	$userinfo = array(
-		'username' => Input::get('username'),
-		'password' => Input::get('password')
-	);
-
-	if (Auth::attempt($userinfo)) {
-		if (Input::has('backlink')) {
-			return Redirect::to(Input::get('backlink'));
-		} else {
-			return Redirect::to_route('home');
-		}
-	} else {
-		Session::keep('backlink');
-		return Redirect::to_route('login')
-					   ->with('login_errors', true);
+Route::post('search', array(
+	'as'		=> 'post_search',
+	'do'		=> function() {
+		return Redirect::to_route('search', Input::get('query'));
 	}
-});
+));
+
+Route::get('search/(:any)', array(
+	'as'		=> 'search',
+	'uses'		=> 'docs@search'
+));
+
+Route::post('login', 'admin@check');
 
 Route::get('hash/(:any)', function($pw) {
 	exit(Hash::make($pw));
 });
 
 Route::get('logout', array(
-	'as'	=> 'logout',
-	'do'	=> function() {
+	'as'		=> 'logout',
+	'do'		=> function() {
 		Auth::logout();
 		return Redirect::to_route('home');
 	}
 ));
 
+Route::get('new', array(
+	'as'		=> 'new_item',
+	'before'	=> 'auth',
+	'uses'		=> 'admin@new'
+));
+
+Route::get('edit/module/(:num)', array(
+	'as'		=> 'edit_module',
+	'before'	=> 'auth',
+	'uses'		=> 'admin@edit_module'
+));
+
+Route::get('edit/item/(:num)', array(
+	'as'		=> 'edit_item',
+	'before'	=> 'auth',
+	'uses'		=> 'admin@edit_item'
+));
+
 Route::get('(:any)/(:any)', array(
-	'as'	=> 'item',
-	'uses'	=> 'docs@item'
+	'as'		=> 'item',
+	'uses'		=> 'docs@item'
 ));
 
 Route::get('(:any)', array(
-	'as'	=> 'module',
-	'uses'	=> 'docs@module'
+	'as'		=> 'module',
+	'uses'		=> 'docs@module'
 ));
 
 
@@ -149,7 +162,7 @@ Route::filter('csrf', function() {
 
 Route::filter('auth', function() {
 	if (Auth::guest()) {
-		return Redirect::to('login')
+		return Redirect::to_route('login')
 					   ->with('backlink', URL::current());
 	}
 });

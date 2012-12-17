@@ -1671,7 +1671,7 @@
 
       this.$menu.css({
         top: pos.top + pos.height
-      , left: pos.left
+      , left: pos.left + this.options.leftOffset
       })
 
       this.$menu.show()
@@ -1901,6 +1901,7 @@
   , menu: '<ul class="typeahead dropdown-menu"></ul>'
   , item: '<li><a href="#"></a></li>'
   , minLength: 1
+  , leftOffset: 0
   }
 
   $.fn.typeahead.Constructor = Typeahead

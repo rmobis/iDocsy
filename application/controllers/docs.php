@@ -70,10 +70,7 @@ class Docs_Controller extends Base_Controller {
 			 		);
 	}
 
-	public function action_login($errors = array()) {
-		return $this->layout
-					->nest('subpage', 'subpages.login',
-			 			array('errors' => $errors)
-			 		);
+	public function action_search($query) {
+		exit('Me wanna search for: ' . $query);
 	}
 }
