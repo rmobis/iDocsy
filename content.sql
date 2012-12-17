@@ -30,39 +30,39 @@ INSERT INTO `items`
 INSERT INTO `headings`
 (`item_id`,		`order`,	`name`,			`html_content`) VALUES
 
-(1,				1, 			'Description',	'Your character\'s current left capacity.'),
-(2,				1, 			'Description',	'Your character\'s current experience points.'),
-(3,				1, 			'Description',	'Your character\'s current health points.'),
-(4,				1, 			'Description',	'Your character\'s current health point percentage.'),
-(5,				1, 			'Description',	'Your character\'s current axe skill.'),
-(6,				1, 			'Description',	'Your character\'s current axe skill\'s pecentage towards the next level.'),
-(7,				1, 			'Description',	'Your character\'s current club skill.'),
-(8,				1, 			'Description',	'Your character\'s current club skill\'s pecentage towards the next level.'),
-(9,				1,			'Description',	'Attacks a given <a href="/docs/type/creature">creature</a>.'),
+(1,				1, 			'Description',	'<p>Your character\'s current left capacity.</p>'),
+(2,				1, 			'Description',	'<p>Your character\'s current experience points.</p>'),
+(3,				1, 			'Description',	'<p>Your character\'s current health points.</p>'),
+(4,				1, 			'Description',	'<p>Your character\'s current health point percentage.</p>'),
+(5,				1, 			'Description',	'<p>Your character\'s current axe skill.</p>'),
+(6,				1, 			'Description',	'<p>Your character\'s current axe skill\'s pecentage towards the next level.</p>'),
+(7,				1, 			'Description',	'<p>Your character\'s current club skill.</p>'),
+(8,				1, 			'Description',	'<p>Your character\'s current club skill\'s pecentage towards the next level.</p>'),
+(9,				1,			'Description',	'<p>Attacks a given <a href="/ibot/creature">creature</a>.</p>'),
 (9,				2,			'Usage',		'<pre class="prettyprint linenums lang-lua">attack(creature)</pre>'),
-(14,			1,			'Description',	'Checks whether given conversation channel is open.'),
+(14,			1,			'Description',	'<p>Checks whether given conversation channel is open.</p>'),
 (14,			2,			'Usage',		'<pre class="prettyprint linenums lang-lua">ischannel(channel)</pre>');
 
 
 INSERT INTO `sub_headings`
 (`heading_id`,	`order`,	`name`,			`html_content`) VALUES
 
-(1,				1,			'Return Type',	'<span class="code">{number}</span>'),
-(2,				1,			'Return Type',	'<span class="code">{number}</span>'),
-(3,				1,			'Return Type',	'<span class="code">{number}</span>'),
-(4,				1,			'Return Type',	'<span class="code">{number}</span>'),
-(5,				1,			'Return Type',	'<span class="code">{number}</span>'),
-(6,				1,			'Return Type',	'<span class="code">{number}</span>'),
-(7,				1,			'Return Type',	'<span class="code">{number}</span>'),
-(8,				1,			'Return Type',	'<span class="code">{number}</span>'),
-(10,			1,			'Parameters',	'<ul><li><span class="code">creature - {Creature} - <a href="/docs/type/creature">Creature</a> to be attacked.</span></li></ul>'),
+(1,				1,			'Return Type',	'<p><span class="code">{number}</span></p>'),
+(2,				1,			'Return Type',	'<p><span class="code">{number}</span></p>'),
+(3,				1,			'Return Type',	'<p><span class="code">{number}</span></p>'),
+(4,				1,			'Return Type',	'<p><span class="code">{number}</span></p>'),
+(5,				1,			'Return Type',	'<p><span class="code">{number}</span></p>'),
+(6,				1,			'Return Type',	'<p><span class="code">{number}</span></p>'),
+(7,				1,			'Return Type',	'<p><span class="code">{number}</span></p>'),
+(8,				1,			'Return Type',	'<p><span class="code">{number}</span></p>'),
+(10,			1,			'Parameters',	'<ul><li><span class="code">creature - {Creature} - <a href="/ibot/creature">Creature</a> to be attacked.</span></li></ul>'),
 (12,			1,			'Parameters',	'<ul><li><span class="code">channel - {string} - Channel to be checked.</span></li></ul>'),
 (12,			2,			'Returns',		'<span class="code">{boolean} - Wheter the checked channel is open.</span>');
 
 INSERT INTO `module_headings`
 (`module_id`,	`order`,	`name`,			`html_content`) VALUES
 
-(1,				1, 			'Description',	'This module holds all content that comes packed with iBot, without any additional library.<br /><br /><strong>Note:</strong> It does not contain any information about standard LUA functions/variables.');
+(1,				1, 			'Description',	'<p>This module holds all content that comes packed with iBot, without any additional library.<br /><br /><strong>Note:</strong> It does not contain any information about standard LUA functions/variables.</p>');
 
 INSERT INTO `users`
 (`email`,						`password`) VALUES

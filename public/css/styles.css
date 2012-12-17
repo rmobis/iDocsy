@@ -59,6 +59,11 @@ body {
 	font-family: monospace;
 }
 
-.content h1, .content h2, .content h3, .content h4 {
-	margin-top: 1em;
+.content h1 {
+	display: inline-block;
+}
+
+.content h2, .content h3, .content h4 {
+	margin-top: 0.75em;
+	display: inline-block;
 }
