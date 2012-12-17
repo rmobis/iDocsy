@@ -1,7 +1,7 @@
-iDocs
+iDocsy
 =================
 
-iDocs is a cooperative effort to bring decent documentation to [Tibia iBot](http://tibiaibot.com).
+iDocsy is a cooperative effort to bring decent documentation to [Tibia iBot](http://tibiaibot.com).
 
 
 
