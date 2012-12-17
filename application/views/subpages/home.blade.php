@@ -4,11 +4,20 @@
 ))); ?>
 
 <div class="content">
-	<h2>About iDocsy</h2>
+	<h1>About iDocsy</h1>
 	<p>
 		iDocsy is a cooperative effort to bring decent documentation to <a href="http://tibiaibot.com">Tibia iBot</a>.
 		We know documentation is vital for the development of any programming/scripting community, we know scripters
 		need it; we're scripters, after all. That's why we created iDocsy.
+	</p>
+
+	<h2>Help Us!</h2>
+	<p>
+		As we said, this is meant to be a cooperative effort, and that means you gotta help! If you happen to notice any
+		wrong or misleading information, anything missing, or even just feel like adding something to what's already
+		there, let us know! You may either <a href="mailto:r.mobis@gmail.com?subject=iDocsy%20-%20Contribution">send us
+		an e-mail</a> or <a href="http://www.tibiaibot.com/forum/private.php?do=newpm&u=16857">drop a private message
+		</a> on iBot forums.
 	</p>
 
 	<h2>Contributors</h2>
@@ -25,8 +34,8 @@
 
 	<h2>Technologies Used</h2>
 	<p>
-		Building this project wasn't an easy task, so we had to rely on other people's work. We'd like to thank all
-		those people:
+		Building this project wasn't an easy task, so we had to rely on other people's work. We'd like to thank anyone
+		worked or contributed to the following projects:
 	</p>
 	<ul>
 		<li><strong><a href="http://php.net/">PHP</a></strong></li>
@@ -36,5 +45,6 @@
 		<li><strong><a href="http://nbbc.sourceforge.net/">New BBCode Parser</a></strong></li>
 		<li><strong><a href="http://twitter.github.com/bootstrap/">Bootstrap</a></strong></li>
 		<li><strong><a href="https://code.google.com/p/google-code-prettify/">Google Prettify</a></strong></li>
+		<li><strong><a href="http://bootstrapper.aws.af.cm/">Bootstrapper</a></strong></li>
 	</ul>
 </div>
