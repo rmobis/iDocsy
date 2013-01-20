@@ -14,6 +14,46 @@
 		<title>iDocsy - Tibia iBot Documentation</title>
 
 		{{ Asset::styles() }}
+		{{ Asset::scripts() }}
+
+		<?php
+			$dataSource = json_encode(array_map(function($item){
+				return $item->name;
+			}, Item::all()));
+		?>
+		<script type="text/javascript">
+			$(prettyPrint);
+			$(function() {
+				$('.form-search').on('submit', function() {
+					var $this = $(this),
+						query = $this.find('input[type=text]').val();
+
+					if (query === '') {
+						return false;
+					} else {
+						$(this).prop('action', '{{ URL::to_route('search_query') }}/' + query);
+					}
+				});
+
+				var query = $('#query');
+				query.typeahead({
+					"source"		: {{ $dataSource }},
+					"items"			: 4,
+					"leftOffset"	: 10,
+					"updater"		: function(x) {
+						query
+							.val(x)
+							.parent()
+								.find('input[name=exactItem]')
+									.val(true)
+								.end()
+								.submit();
+
+						return x;
+					}
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<header>
@@ -35,9 +75,20 @@
 									'visible'	=> Auth::guest()
 								),
 								array(
-									'label'		=> 'New Item',
-									'url'		=> URL::to_route('new_item'),
+									'label'		=> 'New',
+									'url'		=> 'javascript:void()',
+									'active'	=> Request::route()->is('new_module') || Request::route()->is('new_item'),
 									'visible'	=> Auth::check(),
+									'items'		=> array(
+										array(
+											'label' => 'New Module',
+											'url'	=> URL::to_route('new_module')
+										),
+										array(
+											'label' => 'New Item',
+											'url'	=> URL::to_route('new_item')
+										)
+									)
 								)
 							))
 							->with_menus(array(
@@ -55,25 +106,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="span3">
-					<div class="well form-search">
-						{{ Form::open(URL::to_route('post_search')) }}
+					<div class="well">
+						{{ Form::search_open(URL::to_route('search_query')) }}
 						<?php
-							$items = array_map(function($item){
-								return $item->name;
-							}, Item::all());
-
-							echo(Typeahead::create(
-								$items,
-								4,
+							echo(Form::text(
+								'query',
+								null,
 								array(
+									'id'				=> 'query',
 									'class'				=> 'input-medium search-query',
-									'name'				=> 'query',
 									'placeholder'		=> 'search iDocsy',
 									'autocomplete'		=> 'off',
-									'data-left-offset'	=> '10'
 								)
 							));
 						?>
+
+						{{ Form::hidden('exactJump', 'true') }}
+						{{ Form::hidden('exactItem', 'false') }}
 						{{ Form::close() }}
 
 						<?php
@@ -86,12 +135,5 @@
 				</div>
 			</div>
 		</div>
-
-
-
-		{{ Asset::scripts() }}
-		<script type="text/javascript">
-			prettyPrint();
-		</script>
 	</body>
 </html>

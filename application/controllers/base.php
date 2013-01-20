@@ -20,6 +20,8 @@ class Base_Controller extends Controller {
 
 		Asset::add('jQuery', 'js/jquery.js')
 			 ->add('Bootstrap', 'js/bootstrap.js', 'jQuery')
+			 ->add('Ellipsis', 'js/jquery.ellipsis.js', 'jQuery')
+			 ->add('ScrollTo', 'js/jquery.scrollTo.js', 'jQuery')
 			 ->add('Prettify', 'js/prettify.js')
 			 ->add('Prettify Lua', 'js/prettify.lua.js');
 

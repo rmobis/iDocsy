@@ -11,7 +11,7 @@
 	<?php
 		if (Auth::check()) {
 			echo( Button::primary_link(
-							URL::to_route('edit_item', array($item->id)),
+							URL::to_route('edit_item', array($item->module->link, $item->link)),
 							'Edit',
 							array(
 								'style' => 'margin: 0 0 6px 6px;'

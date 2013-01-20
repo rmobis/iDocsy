@@ -17,7 +17,7 @@
         @endif
 
         <!-- username field -->
-        <p>{{ Form::label('username', 'Username') }}</p>
+        <p>{{ Form::label('username', 'E-mail') }}</p>
         <p>{{ Form::text('username') }}</p>
         <!-- password field -->
         <p>{{ Form::label('password', 'Password') }}</p>

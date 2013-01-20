@@ -31,4 +31,13 @@ class Admin_Controller extends Base_Controller {
 	public function action_edit_module($module) {
 		exit('me wants to edit module with id: ' . $module);
 	}
+
+	public function action_new_item() {
+		exit('me wants to add a new item');
+	}
+
+	public function action_new_module() {
+		return $this->layout
+					->nest('subpage', 'subpages.newmodule');
+	}
 }
