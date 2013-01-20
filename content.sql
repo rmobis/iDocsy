@@ -65,7 +65,7 @@ INSERT INTO `module_headings`
 (1,				1, 			'Description',	'<p>This module holds all content that comes packed with iBot, without any additional library.<br /><br /><strong>Note:</strong> It does not contain any information about standard LUA functions/variables.</p>');
 
 INSERT INTO `users`
-(`email`,						`password`) VALUES
+(`email`,				`password`) VALUES
 
-('r.mobis@gmail.com',			'$2a$08$yJdnyLYKwFxtuU2KdTbKluKrVFfJuSJq/MyyyN1r6LL3C94FDf/CW'),
-('leonardo.falk@hotmail.com',	'$2a$08$z5mr7C9M3NkNRIGo6k.ErOHSiggaucCAJeCo5PSh9NXxHap0euK2a');
+('admin@gmail.com',		'$2a$08$lVjH5oFqVgDqHPPZC06X0eE4ZnoS.4VCkM4wV6XVW18g2pfNClNQO'), -- Password: admin
+('test@hotmail.com',	'$2a$08$R7ORiYWlRq9my3uU635Vgeazh85/IAJ9kSjO2Cn.CjI8hdmmbj/Uy'); -- Password: test
