@@ -28,7 +28,7 @@
 	<ul>
 		<li><strong><a href="http://www.tibiaibot.com/forum/member.php?16857-Raphael">Raphael Mobis</a></strong></li>
 		<li><strong><a href="http://www.tibiaibot.com/forum/member.php?28986-Ropiderz">Leonardo Falk</a></strong></li>
-		<li><strong><a href="http://www.tibiaibot.com/forum/member.php?3304-biskuishow">Pedro Marçal</a></strong></li>
+		<li><strong><a href="http://www.tibiaibot.com/forum/member.php?3304-biskuishow">Pedro Maia</a></strong></li>
 		<li><strong><a href="http://www.tibiaibot.com/forum/member.php?116-WedNesDay">Lucas Raphael</a></strong></li>
 	</ul>
 
