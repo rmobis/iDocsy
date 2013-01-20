@@ -42,7 +42,6 @@
 		<li><strong><a href="http://www.apache.org/">Apache</a></strong></li>
 		<li><strong><a href="http://www.laravel.com/">Laravel</a></strong></li>
 		<li><strong><a href="http://jquery.com/">jQuery</a></strong></li>
-		<li><strong><a href="http://nbbc.sourceforge.net/">New BBCode Parser</a></strong></li>
 		<li><strong><a href="http://twitter.github.com/bootstrap/">Bootstrap</a></strong></li>
 		<li><strong><a href="https://code.google.com/p/google-code-prettify/">Google Prettify</a></strong></li>
 		<li><strong><a href="http://bootstrapper.aws.af.cm/">Bootstrapper</a></strong></li>
