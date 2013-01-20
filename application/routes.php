@@ -32,7 +32,11 @@
 |
 */
 
-Route::get(array('/', 'docs'), array(
+Route::get('test', function() {
+	exit(Button::submit('Test'));
+});
+
+Route::get('/', array(
 	'as'		=> 'home',
 	'uses'		=> 'docs@index'
 ));
@@ -42,15 +46,12 @@ Route::get('login', array(
 	'uses'		=> 'admin@login'
 ));
 
-Route::post('search', array(
-	'as'		=> 'post_search',
-	'do'		=> function() {
-		return Redirect::to_route('search', Input::get('query'));
-	}
-));
-
-Route::get('search/(:any)', array(
+Route::any('search/(:all)', array(
 	'as'		=> 'search',
+	'uses'		=> 'docs@search'
+));
+Route::any('search', array(
+	'as'		=> 'search_query',
 	'uses'		=> 'docs@search'
 ));
 
@@ -68,19 +69,25 @@ Route::get('logout', array(
 	}
 ));
 
-Route::get('new', array(
+Route::get('new/item', array(
 	'as'		=> 'new_item',
 	'before'	=> 'auth',
-	'uses'		=> 'admin@new'
+	'uses'		=> 'admin@new_item'
 ));
 
-Route::get('edit/module/(:num)', array(
+Route::get('new/module', array(
+	'as'		=> 'new_module',
+	'before'	=> 'auth',
+	'uses'		=> 'admin@new_module'
+));
+
+Route::get('(:any)/edit', array(
 	'as'		=> 'edit_module',
 	'before'	=> 'auth',
 	'uses'		=> 'admin@edit_module'
 ));
 
-Route::get('edit/item/(:num)', array(
+Route::get('(:any)/(:any)/edit', array(
 	'as'		=> 'edit_item',
 	'before'	=> 'auth',
 	'uses'		=> 'admin@edit_item'
